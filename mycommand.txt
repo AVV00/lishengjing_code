@@ -1,0 +1,20 @@
+nohup sh /mnt/hdd/usr/lishengjing/Code/SOB_pipeline.sh [需要跑SOB的文件夹路径] [cutoff值] > SOB_pipeline.sh.nohup
+python3 /mnt/hdd/usr/lishengjing/Code/merge-mutation-server.py [输入文件夹路径] [输出文件路径]
+python3 /mnt/hdd/usr/lishengjing/Code/merge_mutation_UMI.py [输入文件夹路径]
+perl /mnt/hdd/usr/lishengjing/Code/get_fasta.pl -indir [输入路径] -outdir [输出路径]
+python3 /mnt/hdd/usr/lishengjing/Code/mv_Rawdata.py [原来放的文件路径] [需要挪到的文件路径]
+nohup bash /home/suliping/code/get_feature.sh [文件夹路径] 100 10 0.1 > feature.nohup
+nohup bash /mnt/hdd/usr/lishengjing/Code/get_mtDNApipe_feature.sh [文件夹路径] 100 10 0.1 > feature.nohup
+nohup sh /mnt/hdd/usr/lishengjing/Code/get_haplogroup.sh [有fasta文件夹的文件夹路径]
+sh /mnt/hdd/usr/lishengjing/Code/merge_fastq.sh [文件夹路径] #把有补测数据的合并
+nohup sh /mnt/hdd/usr/lishengjing/softs/mtFFPECleaner-v1/script_generator-predict-v2.sh [需要预测FFPE样本的文件夹] [模式homohetro/mtDNApipe]
+perl -e 'for (@ARGV) { $new = $_; $new =~ s/_L1_/_Q1_/; rename($_, $new) if $_ ne $new }' *_L1_*.fastq.gz 【注意：要先进入fastq.gz所在的文件夹】
+python3 /mnt/hdd/usr/lishengjing/Code/merge-depth.py [有depth文件的文件夹] [输出结果的文件夹]
+python3 /mnt/hdd/usr/lishengjing/Code/merge_insertsize.py [有片段信息文件的大文件夹]
+du -h --max-depth=1 [目录路径]
+/usr/bin/perl /mnt/hdd/usr/lishengjing/Code/generate_data_summary.pl -a $PWD -b haplogroup.txt [生成data summary]
+perl /mnt/hdd/usr/lishengjing/Code/generate_data_summary_new.pl -a $PWD -b haplogroup.txt [新流程生成data summary]
+perl /mnt/data2/lishengjing/20250817_UMI_workflow/rundocker.pl -d /mnt/hdd/usr/lishengjing/softs/igenetech_bus_InsertUMIv3/database/ -s sample_name.txt -pd /mnt/hdd/usr/lishengjing/softs/igenetech_bus_InsertUMIv3/from_igenetech/usr/bin/InsertUMI/panel/T364V1  -th 8 -i [UMI原始文件文件夹] -o [UMI]
+sh /mnt/hdd/usr/lishengjing/Code/get_haplogroup.sh [有fasta文件夹的文件夹] 
+python3 /mnt/hdd/usr/lishengjing/Code/mt_annotation.py [包含突变文件的文件夹] [输入文件中pos信息在第几列]
+python3 /mnt/data2/lishengjing/20260313_annovar/annovar/main_pipeline.py [需要注释的文件] [输出结果文件夹]

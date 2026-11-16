@@ -1,0 +1,19 @@
+1_script_generator_umi.sh  第二个numt流程的第一个代码
+2_get.sam.pl  第2个numt流程的第2个代码
+3_numt.sh   第2个numt流程的第三个代码
+4_get.sam-numt.pl  第二个numt流程的第四个代码
+5_script_generator.sh  第二个numt流程的第五个代码
+SOB_merge_txt.sh   计算SOB值的时候，将hetro和homo的txt文件合并并输出到新文件夹
+Split_second_barcode.v1.py   切barcode
+filter_and_summary_v3.pl    生成ssp文件的代码
+get_barcode.py    得到barcode信息的代码
+get_fasta.pl    ？
+mv_sample.sh    移动特定样本的特定文件到新文件夹下
+private_routine_pipeline_6.sh    片段组学第一步，比对导个人参考基因组的流程
+run.sh   跑DNA常规流程的代码
+run_fragment_study.sh   片段组学第二步，生成片段组学信息
+sam_to_pileup.py    ？
+script_generator-cfDNA-2.sh 第一个numt流程的代码（生成reads）
+script_generator.sh   循环模板
+script_generator_v2.sh
+split_second_barcode.py 切barcode
